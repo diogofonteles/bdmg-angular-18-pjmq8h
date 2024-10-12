@@ -1,0 +1,217 @@
+.btn{
+  padding: 8px 25px;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: var(--border-button);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  color: var(--cor1);
+  font-family: "rawline", sans-serif;
+  &:hover{
+    background-color: var(--cor1_superlight);
+  }
+  &.primary{
+    background-color: var(--cor1);
+    border: 1px solid var(--cor1);
+    color: #fff;
+    &:hover{
+      background-color: var(--cor1_dark);
+      border: 1px solid var(--cor1_dark);
+    }
+    &.reverse{
+      background-color: #fff;
+      border: 1px solid var(--cor1);
+      color: var(--cor1);
+      &:hover{
+        background-color: var(--cor1_superlight);
+        border: 1px solid var(--cor1);
+      }
+    }
+  }
+  &.secondary{
+    background-color: var(--cor2);
+    border: 1px solid var(--cor2);
+    color: #fff;
+    &:hover{
+      background-color: var(--cor2_dark);
+      border: 1px solid var(--cor2_dark);
+    }
+    &.reverse{
+      background-color: #fff;
+      border: 1px solid var(--cor2);
+      color: var(--cor2);
+      &:hover{
+        background-color: var(--cor2_superlight);
+        border: 1px solid var(--cor2);
+      }
+    }
+  }
+  &.tertiary{
+    background-color: var(--cor3);
+    border: 1px solid var(--cor3);
+    color: #fff;
+    &:hover{
+      background-color: var(--cor3_dark);
+      border: 1px solid var(--cor3_dark);
+    }
+    &.reverse{
+      background-color: #fff;
+      border: 1px solid var(--cor3);
+      color: var(--cor3);
+      &:hover{
+        background-color: var(--cor3_superlight);
+        border: 1px solid var(--cor3);
+      }
+    }
+  }
+  &.gradient{
+    background: linear-gradient(90deg, var(--cor1), var(--cor2));
+    border: 0;
+    color: #fff;
+    &:hover{
+      background: linear-gradient(90deg, var(--cor1_dark), var(--cor2_dark));
+    }
+    &.secondary{
+      background: linear-gradient(90deg, var(--cor1), var(--cor3));
+      color: #fff;
+      &:hover{
+        background: linear-gradient(90deg, var(--cor1_dark), var(--cor3_dark));
+      }
+    }
+  }
+
+
+  &.block{
+    width: 20%;
+    min-width: 180px;
+    white-space: nowrap;
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
+  }
+  &.blockall{
+    width: 100%;
+    white-space: nowrap;
+  }
+  &:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .fa, .fa-light, .fa-brands{
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  &.xl{
+    padding: 15px 40px;
+  }
+  &.sm{
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+  &.icon{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    .fa, .fa-light, .fa-brands{
+      margin-right: 0;
+    }
+    &.sm{
+      width: 28px;
+      height: 28px;
+      font-size: 0.8em;
+    }
+  }
+  &.success{
+    background-color: var(--cor-success);
+    border: 1px solid var(--cor-success);
+    color: #fff;
+    &:hover{
+      background-color: var(--cor-success-dark);
+      border: 1px solid var(--cor-success-dark);
+    }
+  }
+  &.warning{
+    background-color: var(--cor-warning);
+    border: 1px solid var(--cor-warning);
+    color: #333333;
+    &:hover{
+      background-color: var(--cor-warning-light);
+      border: 1px solid var(--cor-warning-dark);
+    }
+  }
+  &.error{
+    background-color: var(--cor-error);
+    border: 1px solid var(--cor-error);
+    color: #fff;
+    &:hover{
+      background-color: var(--cor-error-dark);
+      border: 1px solid var(--cor-error-dark);
+    }
+  }
+  @keyframes rotacao {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  &[data-load='true']{
+    &::after{
+      content:"\f3f4";
+      font-family: "Font Awesome 6 Pro";
+      font-weight: bold;
+      animation: rotacao 1s infinite;
+      margin-left: 10px;
+      margin-right: -10px;
+    }
+
+  }
+
+}
+
+.pointer{
+  cursor: pointer;
+}
+.alink{
+  cursor: pointer;
+  color: var(--cor-texto1);
+  text-decoration: underline;
+}
+.box-hover:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s all;
+}
+
+
+.hover-scale-xs{
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.03);
+    transition: all .3s;
+  }
+}
+.hover-scale-sm{
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.05);
+    transition: all .3s;
+  }
+}
+.hover-scale{
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.1);
+    transition: all .3s;
+  }
+}
+.hover-scale-lg{
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.2    );
+    transition: all .3s;
+  }
+}

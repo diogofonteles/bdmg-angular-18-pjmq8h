@@ -1,0 +1,558 @@
+.field {
+  position: relative;
+  label {
+    font-size: 1em;
+    font-weight: 600;
+    position: absolute;
+  }
+  input,
+  select {
+    background-color: var(--bg);
+    color: var(--cor-texto);
+    border: 1px solid var(--gray-metal4);
+    border-radius: var(--border-form);
+    padding: 10px 15px;
+    height: 40px;
+    font-size: 1rem;
+    width: 100%;
+    &::placeholder {
+      font-style: italic;
+      font-size: 1em;
+    }
+    &:hover {
+      border: 1px solid var(--gray-metal_dark);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--gray-metal0);
+      color: var(--gray-metal_dark);
+    }
+    &:focus {
+      outline: 1px solid var(--cor2);
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      transition: background-color 600000s 0s, color 600000s 0s;
+    }
+  }
+
+  //Exclusivo Select
+  select {
+    background-color: var(--bg);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .select-arrow {
+    color: var(--cor1);
+    position: absolute;
+    right: 15px;
+    top: 37px;
+    font-size: 1rem;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+  }
+  select:focus ~ .select-arrow {
+    transform: rotate(180deg);
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+  }
+
+  //Tipo de comportamento do Label
+  &.super {
+    padding: 25px 0 0 0;
+    input,
+    select {
+      ~ label {
+        top: 0;
+        left: 5px;
+        &.recolor {
+          color: #ededed !important;
+        }
+      }
+    }
+  }
+  &.float {
+    padding: 15px 0 0 0;
+    input {
+      ~ label {
+        top: 1.5rem;
+        left: 15px;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+      &:focus ~ label,
+      &:not(:placeholder-shown) ~ label {
+        top: -5px;
+        left: 10px;
+        transition: all 0.3s;
+        font-size: 0.8em;
+        &.recolor {
+          color: #ededed !important;
+        }
+      }
+      &::placeholder {
+        color: rgba(265, 265, 265, 0);
+      }
+    }
+    select {
+      /* Comportamento do Label */
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        ~ label {
+          top: 22px;
+          left: 15px;
+          transition: all 0.3s;
+          font-size: 1rem;
+        }
+        &:focus ~ label {
+          top: -5px;
+          left: 10px;
+          transition: all 0.3s;
+          font-size: 0.8em;
+          &.recolor {
+            color: #ededed !important;
+          }
+        }
+        &:has(option:checked[value]:not([value=''])) ~ label {
+          top: -5px;
+          left: 10px;
+          font-size: 0.8em;
+          transition: all 0.3s;
+          &.recolor {
+            color: #ededed !important;
+          }
+        }
+      }
+      /* FireFox não aceite :has, então o Label é fixo no topo */
+      @-moz-document url-prefix() {
+        ~ label {
+          top: -5px;
+          left: 10px;
+          transition: all 0.3s;
+          font-size: 0.8em;
+          &.recolor {
+            color: #ededed !important;
+          }
+        }
+      }
+    }
+    .select-arrow {
+      top: 27px;
+    }
+    .icon-right {
+      top: 25px;
+    }
+    .icon-left {
+      display: none;
+    }
+  }
+  //Borda do Input
+  &.line {
+    input,
+    select {
+      border: 0;
+      border-bottom: 2px solid var(--gray-metal3);
+      border-radius: 0;
+      padding: 5px 15px 5px 15px;
+      &:hover {
+        border: 0;
+        border-bottom: 2px solid var(--gray-metal_dark);
+      }
+      &:focus {
+        outline: 0;
+        border-bottom: 2px solid var(--cor1);
+        ~ label {
+          top: 5px;
+        }
+      }
+      &:not(:placeholder-shown) ~ label {
+        top: 5px;
+      }
+    }
+  }
+
+  //Prefixo e Sufixo
+  &.prefix {
+    display: flex;
+    .pre {
+      padding: 8px 15px;
+      font-size: 1em;
+      font-weight: 500;
+      background-color: var(--gray-metal1);
+      border-radius: var(--border-form);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border: 1px solid var(--gray-metal3);
+    }
+    input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: 0;
+    }
+    &.line {
+      .suf,
+      .pre {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 2px solid var(--gray-metal3);
+      }
+    }
+    .medium {
+      padding: 8px 15px;
+      font-size: 1rem;
+      font-weight: 500;
+      background-color: var(--gray-metal1);
+      border-radius: var(--border-form);
+      border-radius: 0 !important;
+      border: 1px solid var(--gray-metal3);
+    }
+    input.medium {
+      background-color: var(--bg);
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+  &.suffix {
+    display: flex;
+    .suf {
+      padding: 8px 15px;
+      font-size: 1em;
+      font-weight: 500;
+      background-color: var(--gray-metal1);
+      border-radius: var(--border-form);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border: 1px solid var(--gray-metal3);
+    }
+    input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+    }
+    &.line {
+      .suf,
+      .pre {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 2px solid var(--gray-metal3);
+      }
+    }
+  }
+
+  //Tamanho do campo (field)
+  &.sm {
+    input,
+    select,
+    .suf,
+    .pre {
+      padding: 8px 10px;
+      font-size: 1em;
+    }
+    .select-arrow {
+      right: 10px;
+      top: 35px;
+      font-size: 1em;
+    }
+  }
+  &.xs {
+    input,
+    select,
+    .suf,
+    .pre {
+      padding: 4px 6px;
+      font-size: 0.8em;
+    }
+    .select-arrow {
+      right: 10px;
+      top: 33px;
+      font-size: 0.8em;
+    }
+  }
+
+  //Icones
+  .icon-left {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    color: #999;
+  }
+  .icon-right {
+    position: absolute;
+    top: 35px;
+    right: 15px;
+    color: #999;
+    &.success {
+      color: var(--cor-success);
+    }
+    &.warning {
+      color: var(--cor-warning);
+    }
+    &.error {
+      color: var(--cor-error);
+    }
+    &.info-tooltip {
+      color: var(--cor-info);
+      .tooltip-content {
+        display: none;
+      }
+
+      &:hover {
+        .tooltip-content {
+          position: absolute;
+          z-index: 8000;
+          background-color: var(--cor-info);
+          color: #fff;
+          border-radius: 10px 0 10px 10px;
+          padding: 10px;
+          font-size: 0.8em;
+          min-width: 200px;
+          max-width: 350px;
+          display: inline-block;
+          text-align: left;
+          -webkit-box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 10px 4px rgba(0, 0, 0, 0.1);
+          right: 100%;
+          top: 10px;
+          animation: right 0.4s;
+          .arrow {
+            position: absolute;
+            font-size: 30px;
+            transform: rotate(45deg);
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            top: calc(50% - 5px);
+            right: -5px;
+          }
+        }
+      }
+    }
+  }
+  //Mensagens de erro
+  .feedback {
+    font-size: 0.8em;
+    position: relative;
+    left: 5px;
+    top: -3px;
+    text-align: left;
+    .fa:before {
+      content: '' !important;
+      margin-right: 5px;
+    }
+    &.info {
+      color: var(--cor-info);
+      .fa:before {
+        content: '\f05a' !important;
+      }
+    }
+    &.warning {
+      color: var(--cor-warning);
+      .fa:before {
+        content: '\f071' !important;
+      }
+    }
+    &.error {
+      color: var(--cor-error);
+      .fa:before {
+        content: '\f057' !important;
+      }
+    }
+    &.success {
+      color: var(--cor-success);
+      .fa:before {
+        content: '\f00c' !important;
+      }
+    }
+  }
+  //Input com select e checbox exibidos
+  .selectCheck {
+    position: absolute;
+    width: 100%;
+    background: var(--bg);
+    border-radius: 0 0 var(--border-box) var(--border-box);
+    box-shadow: var(--shadow);
+    .option {
+      background: var(--bg);
+      padding: 0 5px;
+      &:hover {
+        background: var(--gray-metal1);
+      }
+      .check {
+        padding: 10px 15px;
+      }
+    }
+  }
+  //Input com borda a esquerda para destaque
+  &.bd-l {
+    input,
+    select {
+      border-radius: 7px;
+      border-left: 7px solid var(--cor1);
+    }
+  }
+  &.success {
+    input,
+    select {
+      border-left: 7px solid #ccc;
+      border-color: var(--cor-success);
+    }
+  }
+  &.error {
+    input,
+    select {
+      border-left: 7px solid #ccc;
+      border-color: var(--cor-error);
+    }
+  }
+}
+
+//Campo de número
+.field-number {
+  position: relative;
+  input {
+    background-color: var(--bg);
+    color: var(--cor-texto);
+    border: 1px solid var(--gray-metal4);
+    border-radius: var(--border-form);
+    padding: 10px 15px;
+    height: 40px;
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+  }
+  .menos {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    display: inline-flex;
+    width: 40px;
+    height: 100%;
+    content: '-';
+    background-color: var(--gray-metal4);
+    cursor: pointer;
+    border-radius: var(--border-form);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+  }
+  .mais {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    display: inline-flex;
+    width: 40px;
+    height: 100%;
+    content: '+';
+    background-color: var(--gray-metal4);
+    cursor: pointer;
+    border-radius: var(--border-form);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+  }
+  .menos,
+  .mais {
+    transition: 0.2s all;
+    &:hover {
+      background-color: var(--cor1);
+    }
+    &:active {
+      transition: 0.2s all;
+      font-size: 12px;
+    }
+  }
+}
+
+//Campos enfileirados/empilhados
+.field-group {
+  display: flex;
+  flex-wrap: wrap;
+  .field {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    input,
+    select {
+      border-left: 0;
+      border-radius: 0;
+    }
+    &:first-child {
+      input,
+      select {
+        border-radius: var(--border-form) 0 0 var(--border-form);
+        border-left: 1px solid;
+      }
+    }
+    &:last-child {
+      input,
+      select {
+        border-radius: 0 var(--border-form) var(--border-form) 0;
+      }
+    }
+  }
+  @media only screen and (max-width: 780px) {
+    .field {
+      min-width: 100%;
+      input,
+      select {
+        border-left: 1px solid var(--gray-metal4);
+      }
+      &:first-child {
+        input,
+        select {
+          border-radius: var(--border-form) var(--border-form) 0 0;
+          border-left: 1px solid var(--gray-metal4);
+          border-top: 1px solid var(--gray-metal4) !important;
+        }
+      }
+      &:last-child {
+        input,
+        select {
+          border-radius: 0 0 var(--border-form) var(--border-form);
+          border-left: 1px solid var(--gray-metal4);
+          border-bottom: 1px solid var(--gray-metal4);
+        }
+      }
+      &:not(:first-child),
+      &:not(:last-child) {
+        label,
+        .feedback {
+          display: none;
+        }
+        padding: 0;
+        input,
+        select {
+          border-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.field-code {
+  padding: 10px;
+  background-color: #e4e4e4;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  min-height: 100px;
+}
+
+textarea {
+  background-color: var(--bg);
+  color: var(--cor-texto);
+  border: 1px solid var(--gray-metal4);
+  border-radius: var(--border-form);
+  padding: 10px 15px;
+  min-height: 100px;
+  font-size: 1rem;
+  font-family: var(--font-theme);
+  width: 100%;
+}

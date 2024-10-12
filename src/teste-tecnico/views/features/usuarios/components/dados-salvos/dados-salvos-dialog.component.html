@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Usuário Salvo com Sucesso</h1>
+<div mat-dialog-content>
+    <div style="margin-bottom: 20px;">
+        <h3>Informações Pessoais</h3>
+        <p><strong>Nome:</strong> {{ data.nome }}</p>
+        <p><strong>Email:</strong> {{ data.email }}</p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <h3>Endereço</h3>
+        <p><strong>CEP:</strong> {{ data.cep }}</p>
+        <p><strong>Logradouro:</strong> {{ data.logradouro }}</p>
+        <p><strong>Complemento:</strong> {{ data.complemento }}</p>
+        <p><strong>Unidade:</strong> {{ data.unidade }}</p>
+        <p><strong>Bairro:</strong> {{ data.bairro }}</p>
+        <p><strong>Localidade:</strong> {{ data.localidade }}</p>
+        <p><strong>UF:</strong> {{ data.uf }}</p>
+        <p><strong>Estado:</strong> {{ data.estado }}</p>
+        <p><strong>Região:</strong> {{ data.regiao }}</p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <h3>Outras Informações</h3>
+        <p><strong>IBGE:</strong> {{ data.ibge }}</p>
+        <p><strong>GIA:</strong> {{ data.gia }}</p>
+        <p><strong>DDD:</strong> {{ data.ddd }}</p>
+        <p><strong>SIAFI:</strong> {{ data.siafi }}</p>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+</div>

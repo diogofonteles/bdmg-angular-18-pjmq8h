@@ -1,0 +1,24 @@
+<main class="vh-min80">
+    <div class="container pd30-t">
+        <div class="pd20">
+            <h1>Teste técnico BDMG</h1>
+            <hello></hello>
+            <br />
+
+            <div>Escreva seu código HTML abaixo:</div>
+            <br>
+            <div class="box-alert" title="error" *ngIf="erroMsg()">
+                <em class="fa-light icon-alert" (click)="fecharAlertaMsgErro()"></em>
+                <div class="text">
+                    <p class="bold sm">{{erroMsg()}}</p>
+                </div>
+            </div>
+            <app-dados-usuario-form
+                    [endereco]="enderecoResponse"
+                    [isSalvando$]="isSalvando$"
+                    (consultarCepEvent)="aoConsultarCep($event)"
+                    (salvarEvent)="aoSalvar($event)"
+            ></app-dados-usuario-form>
+        </div>
+    </div>
+</main>

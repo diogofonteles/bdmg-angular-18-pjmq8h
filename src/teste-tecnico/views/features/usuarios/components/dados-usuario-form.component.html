@@ -1,0 +1,125 @@
+<div style="background-color: #f5f5f5; padding: 20px; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start;">
+    <div style="background-color: white; padding: 20px; border-radius: 8px; width: 80%; max-width: 900px;">
+        <div style="background-color: #1976d2; padding: 16px; color: white; font-size: 24px; font-weight: bold; border-radius: 8px 8px 0 0;">
+            Cadastro de Usuário
+        </div>
+        <form [formGroup]="dadosUsuarioForm" style="padding: 20px;">
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+                <mat-form-field appearance="outline" style="flex: 1;">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" />
+                    <mat-error *ngIf="hasError('nome', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1;">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" />
+                    <mat-error *ngIf="hasError('email', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+            </div>
+
+            <h3 style="color: #1976d2;">Endereço</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+                <mat-form-field appearance="outline" style="flex: 1 1 100%;">
+                    <mat-label>CEP</mat-label>
+                    <input matInput formControlName="cep" mask="00000-000" />
+                    <mat-error *ngIf="hasError('cep', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 60%;">
+                    <mat-label>Logradouro</mat-label>
+                    <input matInput formControlName="logradouro" />
+                    <mat-error *ngIf="hasError('logradouro', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>Complemento</mat-label>
+                    <input matInput formControlName="complemento" mask="0.000" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 60%;">
+                    <mat-label>Bairro</mat-label>
+                    <input matInput formControlName="bairro" />
+                    <mat-error *ngIf="hasError('bairro', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>Localidade</mat-label>
+                    <input matInput formControlName="localidade" />
+                    <mat-error *ngIf="hasError('localidade', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 60%;">
+                    <mat-label>UF</mat-label>
+                    <mat-select formControlName="uf">
+                        <mat-option value=""></mat-option>
+                        <mat-option value="AC">AC - Acre</mat-option>
+                        <mat-option value="AL">AL - Alagoas</mat-option>
+                        <mat-option value="AP">AP - Amapá</mat-option>
+                        <mat-option value="AM">AM - Amazonas</mat-option>
+                        <mat-option value="BA">BA - Bahia</mat-option>
+                        <mat-option value="CE">CE - Ceará</mat-option>
+                        <mat-option value="DF">DF - Distrito Federal</mat-option>
+                        <mat-option value="ES">ES - Espírito Santo</mat-option>
+                        <mat-option value="GO">GO - Goiás</mat-option>
+                        <mat-option value="MA">MA - Maranhão</mat-option>
+                        <mat-option value="MT">MT - Mato Grosso</mat-option>
+                        <mat-option value="MS">MS - Mato Grosso do Sul</mat-option>
+                        <mat-option value="MG">MG - Minas Gerais</mat-option>
+                        <mat-option value="PA">PA - Pará</mat-option>
+                        <mat-option value="PB">PB - Paraíba</mat-option>
+                        <mat-option value="PR">PR - Paraná</mat-option>
+                        <mat-option value="PE">PE - Pernambuco</mat-option>
+                        <mat-option value="PI">PI - Piauí</mat-option>
+                        <mat-option value="RJ">RJ - Rio de Janeiro</mat-option>
+                        <mat-option value="RN">RN - Rio Grande do Norte</mat-option>
+                        <mat-option value="RS">RS - Rio Grande do Sul</mat-option>
+                        <mat-option value="RO">RO - Rondônia</mat-option>
+                        <mat-option value="RR">RR - Roraima</mat-option>
+                        <mat-option value="SC">SC - Santa Catarina</mat-option>
+                        <mat-option value="SP">SP - São Paulo</mat-option>
+                        <mat-option value="SE">SE - Sergipe</mat-option>
+                        <mat-option value="TO">TO - Tocantins</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="hasError('uf', 'required')">Campo obrigatório</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>Estado</mat-label>
+                    <input matInput formControlName="estado" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>Região</mat-label>
+                    <input matInput formControlName="regiao" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>IBGE</mat-label>
+                    <input matInput formControlName="ibge" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>GIA</mat-label>
+                    <input matInput formControlName="gia" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>DDD</mat-label>
+                    <input matInput formControlName="ddd" />
+                </mat-form-field>
+
+                <mat-form-field disabled="true" appearance="outline" style="flex: 1 1 35%;">
+                    <mat-label>SIAFI</mat-label>
+                    <input matInput formControlName="siafi" />
+                </mat-form-field>
+            </div>
+
+            <div style="margin-top: 20px; text-align: right;">
+                <button mat-raised-button color="primary" type="submit" (click)="salvar()" [disabled]="!dadosUsuarioForm.valid">
+                    Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

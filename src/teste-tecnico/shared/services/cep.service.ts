@@ -9,7 +9,7 @@ import {EnderecoResponse} from "../models/responses/endereco.response";
 export class CepService {
     constructor(private httpClient: HttpClient) {}
 
-    getEndereco(cep: string): Observable<EnderecoResponse> {
+    obtemEndereco(cep: string): Observable<EnderecoResponse> {
         return this.httpClient.get<EnderecoResponse>(
             `https://viacep.com.br/ws/${cep}/json/`
         );

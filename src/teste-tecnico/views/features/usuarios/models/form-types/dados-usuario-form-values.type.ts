@@ -1,4 +1,6 @@
-export interface EnderecoResponse {
+export type DadosUsuarioFormValues = {
+    nome: string;
+    email: string;
     cep: string;
     logradouro: string;
     complemento: string;
