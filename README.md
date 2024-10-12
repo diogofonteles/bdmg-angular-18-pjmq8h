@@ -30,6 +30,6 @@ Em resumo, esta arquitetura possibilita:
 
 5. Lazy Loading e Modular Routing
 
-Esta arquitetura possibilita usar com facilidade lazy loading para carregamento dos módulos sob demanda.
+- Esta arquitetura possibilita usar com facilidade lazy loading para carregamento dos módulos sob demanda.
 
 [Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/diogofonteles/bdmg-angular-18-pjmq8h)
